@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Produtos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/produtoListar.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/progGraficProductStock.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html">Home</a>
+        <br><br><br>
+        <section>
+            <h2>Lista de Produtos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Categoria</th>
+                        <th>Preço</th>
+                        <th>Percentual de Desconto</th>
+                        <th>Estoque</th>
+                        <th>Marca</th>
+                    </tr>
+                </thead>
+                <tbody id="produtos-tabela">
+                    <!--Dados vem do JS-->
+                </tbody>
+            </table>
+        </section>
+        <br>
+        <button id="btn">Listar Todos os Produtos</button>
+        <div id="res"></div>
+        <br><br>
+        <label for="id">ID do produto: <input type="number" id="id"></label>
+        <br><button id="listarId">Listar o Produto do ID</button>
+        <br><br>
+        <div id="resListarId"></div>
+        <br><br>
+        <section>
+            <h1>Gráfico Produto x Estoque</h1>
+            <button id="buscarDadosProd">Buscar Produtos</button>
+            <button id="gerarGraficProd">Gerar Gráfico</button>
+            <div class="graficoArea">
+                <canvas id="graficProductStock"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <div class="container2">
+        <h1>Autor</h1>
+        <h2>Ruan Geraldo</h2>
+        <div class="divs"><br>
+            <h3>Sistema de CRUD (Create, Read, Update, Delete) Feito para estudo sem uso comercial, instituto de ensino
+                SENAI TIJUCAS SC.</h3>
+            <div class="image-container">
+                <h2><a href="https://www.instagram.com/ruan_gerald/profilecard/?igsh=NXQ0dzR4aGVnbnNp" target="_blank"><img src="insta.png" alt=""></a>
+                </h2>
+                <h2><a href="https://github.com/ruangerald" target="_blank"><img src="github.png" alt=""></a></h2>
+            </div>
+        </div>
+</body>
+
+</html>

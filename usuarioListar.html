@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Usuários</title>
+    <script src="./js/usuarioListar.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/progGraficUserAge.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html">Home</a>
+        <br><br><br>
+        <section>
+            <h2>Lista de Usuários</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Sobrenome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Endereço</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                        <th>Data de Nascimento</th>
+                    </tr>
+                </thead>
+                <tbody id="usuarios-tabela">
+                    <!--Dados vem do JS-->
+                </tbody>
+            </table>
+        </section>
+        <br>
+        <button id="listarTudo">Listar Usuários</button>
+        <div id="res"></div>
+        <br><br>
+        <label for="id">ID do Usuário: <input type="number" id="id"></label>
+        <br><button id="listarId">Listar o Úsuario do ID</button>
+        <br><br>
+        <div id="resListarId"></div>
+        <br><br>
+        <section>
+            <h1>Gráfico Usuário x Idade</h1>
+            <br>
+            <button id="buscarDados">Buscar</button>
+            <button id="gerarGrafic">Gerar</button>
+
+            <label for="valIni">Digite o valor inicial de registros para o gráfico</label>
+            <input type="number" id="valIni"><br>
+            <br><br>
+            <div class="graficoArea">
+                <div class="graficoPosicao">
+                    <canvas id="graficUserAge"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container2">
+        <h1>Autor</h1>
+        <h2>Ruan Geraldo</h2>
+        <div class="divs"><br>
+            <h3>Sistema de CRUD (Create, Read, Update, Delete) Feito para estudo sem uso comercial, instituto de ensino
+                SENAI TIJUCAS SC.</h3>
+            <div class="image-container">
+                <h2><a href="https://www.instagram.com/ruan_gerald/profilecard/?igsh=NXQ0dzR4aGVnbnNp" target="_blank"><img src="insta.png" alt=""></a>
+                </h2>
+                <h2><a href="https://github.com/ruangerald" target="_blank"><img src="github.png" alt=""></a></h2>
+            </div>
+        </div>
+</body>
+
+</html>

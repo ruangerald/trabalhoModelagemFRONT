@@ -1,0 +1,335 @@
+/* Variáveis CSS para esquema de cores e tipografia */
+:root {
+  --primary-color: #4a90e2;
+  --primary-gradient: linear-gradient(135deg, #4a90e2, #007bff);
+  --secondary-color: #adb5bd;
+  --background-color: #121212;
+  --card-background: #1e1e1e;
+  --border-color: #343a40;
+  --text-color: #e9ecef;
+  --font-family: 'Poppins', sans-serif;
+  --transition-speed: 0.3s;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Reset and global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+/* Estilo para posicionar os containers lado a lado */
+body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0; /* Espaçamento entre os containers */
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card-background);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  animation: fadeIn var(--transition-speed) ease-in-out;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+}
+
+.container2 {
+  max-width: 300px; /* Largura fixa para o container2 */
+  height: 800px;
+  flex-shrink: 0; /* Impede que o container2 encolha */
+  background: linear-gradient(135deg, purple, rgb(54, 9, 255));
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  position: fixed;
+  right: 200px; /* Distância da borda direita */
+  z-index: 2000; /* Garante que fique acima de outros elementos */
+}
+
+.container2 h1 {
+  background-color: #121212;
+  border-radius: 10px;
+}
+.container2 h2 {
+  background-color: #121212;
+  border-radius: 10px;
+}
+
+.container2 .container2 h2, .container2 h3 {
+  margin-bottom: 15px;
+  color: var(--text-color);
+  font-size: 20px;
+}
+
+.container2 .image-container {
+  display: flex;
+  justify-content: center; /* Centraliza as imagens horizontalmente */
+  gap: 15px; /* Espaçamento entre as imagens */
+}
+
+.container2 img {
+  width: 50px; /* Ajusta o tamanho das imagens */
+  height: 50px;
+  border-radius: 50%; /* Torna as imagens circulares */
+  transition: transform var(--transition-speed);
+}
+
+.container2 img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+}
+
+.container2 a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+.container2 a:hover {
+  color: #0056b3;
+}
+
+.gif img {
+  width: 100%; /* Permite que o GIF mantenha seu tamanho original */
+  height: 100%; /* Permite que o GIF mantenha sua proporção */
+  border-radius: 0; /* Remove o arredondamento aplicado às outras imagens */
+  box-shadow: none; /* Remove a sombra */
+  transition: none; /* Remove a transição */
+  border-radius: 10px;
+}
+
+.gif {
+  display: flex;
+  justify-content: center; /* Centraliza o GIF horizontalmente */
+  margin-top: 20px; /* Espaçamento superior */
+}
+
+.divs {
+  background-color: #121212;
+  border-radius: 10px;
+  width: 260px;
+}
+
+.links-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.links-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cards por linha */
+  gap: 20px; /* Espaçamento entre os cards */
+  justify-content: center;
+}
+
+.links {
+  width: 100%; /* Ajusta automaticamente ao grid */
+  height: 150px;
+  background: var(--card-background);
+  color: var(--text-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  margin-bottom: 30px;
+}
+
+.links:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgb(0, 0, 0);
+}
+
+.links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition-speed);
+}
+
+.links a:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  margin-bottom: 20px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+input, select, textarea {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+  outline: none;
+}
+
+button {
+  padding: 12px;
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background var(--transition-speed), transform var(--transition-speed);
+}
+
+button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+th {
+  background: var(--primary-gradient);
+  color: white;
+  font-weight: bold;
+}
+
+td {
+  background: var(--card-background);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.nav {
+  margin-bottom: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.nav a {
+  padding: 10px 15px;
+  background: var(--primary-gradient);
+  color: white;
+  border-radius: 5px;
+  transition: background var(--transition-speed);
+}
+
+.nav a:hover {
+  background: #0056b3;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Sombra para destacar o footer */
+  z-index: 1000; /* Garante que o footer fique acima de outros elementos */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animações CSS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
