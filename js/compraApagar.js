@@ -1,5 +1,5 @@
 let res = document.getElementById('res')
-let btn = document.getElementById('apagFab')
+let btn = document.getElementById('btn')
 
 btn.addEventListener('click', (e)=>{
     e.preventDefault()

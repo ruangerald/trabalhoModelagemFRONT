@@ -1,6 +1,6 @@
 let res = document.getElementById('res')
 
-let btn = document.getElementById('btn')
+let btn = document.getElementById('listarId')
 
 const tabelaCompras = document.getElementById('compras-tabela')
 

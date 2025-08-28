@@ -1,335 +1,269 @@
-/* Variáveis CSS para esquema de cores e tipografia */
-:root {
-  --primary-color: #2ecc40; /* Verde vibrante */
-  --primary-gradient: linear-gradient(135deg, #2ecc40, #ff9800); /* Verde para laranja */
-  --secondary-color: #ffb347; /* Laranja claro */
-  --background-color: #222831; /* Cinza escuro */
-  --card-background: #393e46; /* Cinza médio */
-  --border-color: #00adb5; /* Azul esverdeado */
-  --text-color: #f8f8f8; /* Branco suave */
-  --font-family: 'Poppins', sans-serif;
-  --transition-speed: 0.3s;
-  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+
+:root{
+  --bg-0:#0f1115;
+  --bg-1:#151923;
+  --bg-2:#1b2030;
+  --surface:#20273a;
+  --surface-2:#26314a;
+  --text-0:#e9edf1;
+  --text-1:#c8cfdb;
+  --primary:#7c9cff;
+  --primary-600:#5c7dff;
+  --accent:#4ad6b8;
+  --danger:#ff6b6b;
+  --warning:#f6c860;
+  --ok:#4cd97b;
+  --ring: rgba(124,156,255,.45);
+  --muted:#8a93a8;
+  --radius:16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --trans:.25s ease;
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 
-/* Reset and global styles */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-family);
+/* --------- Reset de base --------- */
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background: radial-gradient(1200px 600px at 80% -10%, rgba(124,156,255,.08), transparent),
+             radial-gradient(900px 500px at -10% 120%, rgba(74,214,184,.08), transparent),
+             var(--bg-0);
+  color:var(--text-0);
+  font: 16px/1.5 var(--font);
 }
 
-/* Estilo para posicionar os containers lado a lado */
-body {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 0; /* Espaçamento entre os containers */
-  background-color: var(--background-color);
-  color: var(--text-color);
-  padding: 20px;
-  line-height: 1.6;
+/* --------- Tipografia --------- */
+h1,h2,h3{margin:0 0 .5rem; line-height:1.2; color:var(--text-0)}
+h1{font-size:clamp(1.6rem, 2.2vw + 1rem, 2.4rem); letter-spacing:.3px}
+h2{font-size:clamp(1.2rem, 1.2vw + .9rem, 1.6rem); color:var(--text-1)}
+p, label, a, li, span{color:var(--text-1)}
+
+/* --------- Layout de páginas --------- */
+.container{
+  width:min(100%, 1000px);
+  margin-inline:auto;
+  padding: clamp(16px, 2vw, 28px);
+  background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  border:1px solid rgba(124,156,255,.12);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: saturate(120%) blur(4px);
+  animation: fadeIn .6s ease both;
+}
+
+/* Para a Home com os links */
+.links{margin:.4rem 0}
+.links a{
+  display:block;
+  width:100%;
+  text-decoration:none;
+  color:var(--text-0);
+  background:linear-gradient(180deg, var(--surface), var(--surface-2));
+  border:1px solid rgba(124,156,255,.16);
+  padding:.9rem 1rem;
+  border-radius:14px;
+  transition:transform var(--trans), box-shadow var(--trans), border-color var(--trans);
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+.links a:hover{
+  transform: translateY(-2px);
+  border-color: var(--ring);
+  box-shadow: 0 10px 24px rgba(124,156,255,.18);
+}
+
+/* --------- Navegação simples (quando existir <a> Home) --------- */
+.container > a[href$="index.html"]{
+  display:inline-flex;
+  gap:.5rem;
+  align-items:center;
+  padding:.5rem .8rem;
+  margin:.2rem 0 1rem;
+  border-radius:12px;
+  border:1px solid rgba(124,156,255,.18);
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  text-decoration:none;
+  color:var(--text-0);
+  transition: background var(--trans), transform var(--trans);
+}
+.container > a[href$="index.html"]:hover{ transform: translateX(2px) }
+
+/* --------- Formulários --------- */
+label{display:block; margin:.35rem 0; font-weight:500}
+label > input,
+label > select,
+label > textarea,
+input, select, textarea{
+  width:min(100%, 520px);
+  display:block;
+  margin-top:.35rem;
+  padding:.8rem .9rem;
+  border-radius:12px;
+  border:1px solid rgba(124,156,255,.2);
+  background:rgba(255,255,255,.03);
+  color:var(--text-0);
+  outline:none;
+  transition:border-color var(--trans), box-shadow var(--trans), background var(--trans);
+}
+input::placeholder, textarea::placeholder{color:#9aa3b8}
+input:focus, select:focus, textarea:focus{
+  border-color: var(--ring);
+  box-shadow: 0 0 0 4px var(--ring);
+  background: rgba(255,255,255,.06);
+}
+
+/* Agrupadores visuais */
+section{
+  margin: 1.2rem 0;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border:1px solid rgba(124,156,255,.14);
+}
+
+/* --------- Botões --------- */
+button, .btn{
+  appearance:none;
+  border:0;
+  border-radius:14px;
+  padding:.8rem 1rem;
+  font-weight:600;
+  cursor:pointer;
+  transition: transform var(--trans), box-shadow var(--trans), opacity var(--trans), background var(--trans);
+  color:#0b1020;
+  background: linear-gradient(180deg, var(--primary), var(--primary-600));
+  box-shadow: 0 10px 20px rgba(92,125,255,.25);
+}
+button:hover, .btn:hover{ transform: translateY(-1px) }
+button:active, .btn:active{ transform: translateY(0); opacity:.9 }
+button:disabled{ opacity:.6; cursor:not-allowed }
+
+/* Variações */
+button#cadastrarAPI,
+button#buscarDadosProd,
+button#buscarDadosUser{ background: linear-gradient(180deg, var(--accent), #32bea3) }
+button#gerarGraficProd, button#gerarGraficUser{ background: linear-gradient(180deg, var(--ok), #2fb869) }
+button#apagar, button#btnApagar, button#btnApagarCompra{ background: linear-gradient(180deg, var(--danger), #ff4c4c) }
+
+/* --------- Tabelas (Listagens) --------- */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin: 1rem 0;
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border:1px solid rgba(124,156,255,.16);
+  border-radius: 14px;
+  overflow:hidden;
+  box-shadow: var(--shadow);
+}
+thead th{
+  text-align:left;
+  padding: .9rem;
+  font-weight:700;
+  color:var(--text-0);
+  background: rgba(124,156,255,.14);
+  position:sticky; top:0;
+}
+tbody td{
+  padding:.85rem .9rem;
+  border-top:1px solid rgba(124,156,255,.12);
+  color:var(--text-1);
+}
+tbody tr:hover{ background: rgba(124,156,255,.08) }
+caption{caption-side:bottom; padding:.5rem; color:var(--muted)}
+
+/* Scroll horizontal suave quando a tabela estourar a largura */
+.table-wrap{
+  overflow:auto;
+  border-radius:14px;
+  border:1px solid rgba(124,156,255,.16);
+}
+
+/* --------- Cards de resultado (quando respostas da API forem inseridas em <div>) --------- */
+.result, .card, .output{
+  margin:.8rem 0;
+  padding:1rem;
+  border-radius:14px;
+  border:1px solid rgba(124,156,255,.16);
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  color:var(--text-1);
+  box-shadow: var(--shadow);
+}
+
+/* --------- Área de gráfico --------- */
+.graficoArea{
+  width:100%;
+  margin: .5rem 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding: 1rem;
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border:1px solid rgba(124,156,255,.14);
+}
+.graficoPosicao{ width:min(100%, 900px) }
+canvas{ width:100% !important; height:auto !important; max-height:60vh }
+
+/* --------- Rodapé --------- */
+footer{
+  text-align:center;
+  margin: 24px auto 8px;
+  color:var(--muted) !important; /* sobrepõe inline do index */
+  font-size:.9rem !important;
+}
+
+/* --------- Utilitários --------- */
+.center{ display:grid; place-items:center }
+.hidden{ display:none !important }
+.stack > * + *{ margin-top:.6rem }
+.grid{
+  display:grid;
+  gap: clamp(12px, 2vw, 20px);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* --------- Acessibilidade --------- */
+:focus-visible{ outline: 3px solid var(--ring); outline-offset: 2px }
+a{ color: var(--primary) }
+a:hover{ text-decoration: underline }
+
+/* --------- Responsividade --------- */
+@media (max-width: 640px){
+  .container{ padding: 16px }
+  table{ font-size:.92rem }
+  label > input, label > select, label > textarea{ width:100% }
+  .links a{ padding:.85rem .9rem }
+}
+
+/* --------- Animações --------- */
+@keyframes fadeIn{
+  from{ opacity:0; transform: translateY(8px) }
+  to{ opacity:1; transform: translateY(0) }
 }
 
 .container {
-  max-width: 900px;
-  margin: 0 auto;
-  background: var(--card-background);
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: var(--box-shadow);
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  animation: fadeIn var(--transition-speed) ease-in-out;
-}
-
-.container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
-}
-
-.container2 {
-  max-width: 300px;
-  height: 800px;
-  flex-shrink: 0;
-  background: linear-gradient(135deg, #2ecc40, #ff9800); /* Verde para laranja */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: var(--box-shadow);
   text-align: center;
-  position: fixed;
-  right: 200px;
-  z-index: 2000;
 }
 
-.container2 h1 {
-  background-color: #121212;
-  border-radius: 10px;
-}
-.container2 h2 {
-  background-color: #121212;
-  border-radius: 10px;
+/* Forçar links da home em linha, mesmo com <br> */
+.container br {
+  display: none; /* esconde todas as quebras dentro do container */
 }
 
-.container2 .container2 h2, .container2 h3 {
-  margin-bottom: 15px;
-  color: var(--text-color);
-  font-size: 20px;
-}
-
-.container2 .image-container {
-  display: flex;
-  justify-content: center; /* Centraliza as imagens horizontalmente */
-  gap: 15px; /* Espaçamento entre as imagens */
-}
-
-.container2 img {
-  width: 50px; /* Ajusta o tamanho das imagens */
-  height: 50px;
-  border-radius: 50%; /* Torna as imagens circulares */
-  transition: transform var(--transition-speed);
-}
-
-.container2 img:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
-}
-
-.container2 a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: color var(--transition-speed);
-}
-
-.container2 a:hover {
-  color: #0056b3;
-}
-
-.gif img {
-  width: 100%; /* Permite que o GIF mantenha seu tamanho original */
-  height: 100%; /* Permite que o GIF mantenha sua proporção */
-  border-radius: 0; /* Remove o arredondamento aplicado às outras imagens */
-  box-shadow: none; /* Remove a sombra */
-  transition: none; /* Remove a transição */
-  border-radius: 10px;
-}
-
-.gif {
-  display: flex;
-  justify-content: center; /* Centraliza o GIF horizontalmente */
-  margin-top: 20px; /* Espaçamento superior */
-}
-
-.divs {
-  background-color: #121212;
-  border-radius: 10px;
-  width: 260px;
-}
-
-.links-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.links-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 cards por linha */
-  gap: 20px; /* Espaçamento entre os cards */
-  justify-content: center;
-}
-
-.links {
-  width: 100%; /* Ajusta automaticamente ao grid */
-  height: 150px;
-  background: var(--card-background);
-  color: var(--text-color);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  box-shadow: var(--box-shadow);
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  margin-bottom: 30px;
-}
-
-.links:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px #2ecc40; /* Verde vibrante */
-}
-
-.links a {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color var(--transition-speed);
-}
-
-.links a:hover {
-  color: #0056b3;
-  text-decoration: none;
-}
-
-h1, h2, h3 {
-  margin-bottom: 20px;
-  color: var(--text-color);
-  font-weight: 600;
-}
-
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.75rem;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-label {
-  font-weight: bold;
-  color: var(--secondary-color);
-}
-
-input, select, textarea {
-  padding: 12px;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  font-size: 14px;
-  background-color: var(--card-background);
-  color: var(--text-color);
-  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
-}
-
-input:focus, select:focus, textarea:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
-  outline: none;
-}
-
-button {
-  padding: 12px;
-  background: var(--primary-gradient);
+.container a {
+  display: inline-block;
+  margin: 10px 15px;
+  padding: 12px 20px;
+  background-color: #007bff;
   color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background var(--transition-speed), transform var(--transition-speed);
-}
-
-button:hover {
-  background: #ff9800; /* Laranja vibrante */
-  transform: scale(1.05);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th, td {
-  padding: 12px;
-  border: 1px solid var(--border-color);
-  text-align: left;
-}
-
-th {
-  background: var(--primary-gradient);
-  color: white;
-  font-weight: bold;
-}
-
-td {
-  background: var(--card-background);
-  color: var(--text-color);
-}
-
-a {
-  color: var(--primary-color);
   text-decoration: none;
+  border-radius: 8px;
   font-weight: bold;
-  transition: color var(--transition-speed);
+  transition: background-color 0.3s;
 }
 
-a:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-.nav {
-  margin-bottom: 30px;
-  display: flex;
-  gap: 15px;
-}
-
-.nav a {
-  padding: 10px 15px;
-  background: var(--primary-gradient);
-  color: white;
-  border-radius: 5px;
-  transition: background var(--transition-speed);
-}
-
-.nav a:hover {
-  background: #ff9800; /* Laranja vibrante */
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: var(--card-background);
-  color: var(--text-color);
-  text-align: center;
-  padding: 10px 0;
-  font-size: 14px;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Sombra para destacar o footer */
-  z-index: 1000; /* Garante que o footer fique acima de outros elementos */
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .container {
-    padding: 20px;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-}
-
-/* Animações CSS */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.container a:hover {
+  background-color: #0056b3;
 }
